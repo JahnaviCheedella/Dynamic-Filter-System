@@ -2,6 +2,10 @@
 
 A reusable, type-safe dynamic filter system for React applications built with TypeScript and Material-UI.
 
+## Live Demo
+
+**[View Live Demo](https://employee-filter-system.vercel.app)**
+
 ## Features
 
 - **7 Different Field Types** - Text, Number, Date, Amount, Single Select, Multi-Select, Boolean
