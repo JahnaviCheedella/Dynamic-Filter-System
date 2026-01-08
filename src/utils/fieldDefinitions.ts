@@ -1,0 +1,172 @@
+import type { FieldDefinition } from "../types/field.types";
+
+// Field definitions for all filterable fields and this configuration drives the entire filter system
+export const fieldDefinitions: FieldDefinition[] = [
+  {
+    id: "name",
+    label: "Name",
+    type: "text",
+    path: "name",
+    operators: [
+      "equals",
+      "contains",
+      "startsWith",
+      "endsWith",
+      "doesNotContain",
+    ],
+  },
+  {
+    id: "email",
+    label: "Email",
+    type: "text",
+    path: "email",
+    operators: [
+      "equals",
+      "contains",
+      "startsWith",
+      "endsWith",
+      "doesNotContain",
+    ],
+  },
+  {
+    id: "department",
+    label: "Department",
+    type: "singleSelect",
+    path: "department",
+    operators: ["is", "isNot"],
+    options: [
+      "Engineering",
+      "Marketing",
+      "Sales",
+      "HR",
+      "Finance",
+      "Operations",
+      "Design",
+    ],
+  },
+  {
+    id: "role",
+    label: "Role",
+    type: "singleSelect",
+    path: "role",
+    operators: ["is", "isNot"],
+    options: [
+      "Senior Developer",
+      "Junior Developer",
+      "Manager",
+      "Director",
+      "Analyst",
+      "Coordinator",
+      "Designer",
+      "Lead",
+    ],
+  },
+  {
+    id: "salary",
+    label: "Salary",
+    type: "amount",
+    path: "salary",
+    operators: ["between"],
+  },
+  {
+    id: "joinDate",
+    label: "Join Date",
+    type: "date",
+    path: "joinDate",
+    operators: ["between"],
+  },
+  {
+    id: "isActive",
+    label: "Active Status",
+    type: "boolean",
+    path: "isActive",
+    operators: ["is"],
+  },
+  {
+    id: "skills",
+    label: "Skills",
+    type: "multiSelect",
+    path: "skills",
+    operators: ["in", "notIn"],
+    options: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "GraphQL",
+      "Python",
+      "AWS",
+      "Docker",
+      "SQL",
+      "MongoDB",
+      "Vue.js",
+    ],
+  },
+  {
+    id: "city",
+    label: "City",
+    type: "singleSelect",
+    path: "address.city",
+    operators: ["is", "isNot"],
+    options: [
+      "Hyderabad",
+      "Bengaluru",
+      "Chennai",
+      "Mumbai",
+      "Delhi",
+      "Pune",
+      "Kolkata",
+      "Ahmedabad",
+      "Jaipur",
+      "Coimbatore",
+    ],
+  },
+  {
+    id: "projects",
+    label: "Number of Projects",
+    type: "number",
+    path: "projects",
+    operators: [
+      "equals",
+      "greaterThan",
+      "lessThan",
+      "greaterThanOrEqual",
+      "lessThanOrEqual",
+    ],
+  },
+  {
+    id: "performanceRating",
+    label: "Performance Rating",
+    type: "number",
+    path: "performanceRating",
+    operators: [
+      "equals",
+      "greaterThan",
+      "lessThan",
+      "greaterThanOrEqual",
+      "lessThanOrEqual",
+    ],
+  },
+];
+
+// Human-readable labels for operators
+export const operatorLabels: Record<string, string> = {
+  equals: "Equals",
+  contains: "Contains",
+  startsWith: "Starts With",
+  endsWith: "Ends With",
+  doesNotContain: "Does Not Contain",
+  greaterThan: "Greater Than",
+  lessThan: "Less Than",
+  greaterThanOrEqual: "Greater Than or Equal",
+  lessThanOrEqual: "Less Than or Equal",
+  between: "Between",
+  is: "Is",
+  isNot: "Is Not",
+  in: "In",
+  notIn: "Not In",  
+};
+
+// Get field definition by ID
+export const getFieldById = (fieldId: string): FieldDefinition | undefined => {
+  return fieldDefinitions.find((f) => f.id === fieldId);
+};
